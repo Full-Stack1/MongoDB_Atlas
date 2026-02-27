@@ -66,12 +66,33 @@ const itemsfilter=(req,res)=>
   })
 
 };
- 
+
+ const updateprice=(req,res)=>
+{  const{id}=req.params;
+ const{price}=req.body;
+ let item=items.find((element)=>
+{
+    return element.id==id;
+})
+if(!item)
+{
+   return res.status(404).json
+    ({
+        error:"not found "
+        
+    })
+}
+item.price=price;
+res.status(200).json({
+    message:"the price update"
+})
+ }
 
 
 module.exports=
 {
  getAllitems,
  itemsfilter,
+ updateprice,
 
 }
