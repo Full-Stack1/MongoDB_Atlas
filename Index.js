@@ -1,6 +1,7 @@
 const express = require("express");
 const usersRouter = require("./routes/user");
 const itemsRouters = require("./routes/items");
+require("./models/db");
 const app = express();
 const PORT = 8000;
 app.use(express.static("public")); //to read the imag and the any file hin folder public
