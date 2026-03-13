@@ -18,5 +18,5 @@ console.log("first test middelware")
 next();
 
 })
-itemschema.statics.findByName
-module.exports =mongoose.model("Item",itemschema); */                                                                      
+itemschema.statics.findByName */  
+module.exports =mongoose.model("Item",itemschema);                                                                    

@@ -52,15 +52,24 @@ const addNewItemtouser= async (req,res)=>
     return res.status(400).json({message: "Pleas Enter Your Name"})
       else if (!category)
     return res.status(400).json({message:"Pleas checking the Filed of category"})
-     const newitem= await Item.create
+     //console.log(Item); 
+      const newitem= await Item.create
      ({
          name,
          image,
          category,
      })
+   //another way to add item to the user 
+   const user= await usermodel.findByIdAndUpdate(
+    userid,
+    {$push : {items : newitem._id}}
+)
+
+
+
 
      //first way to add item to user
-     const user= await usermodel.findById(userid)
+    /* const user= await usermodel.findById(userid)
     
 
      if(!user){
@@ -72,9 +81,9 @@ const addNewItemtouser= async (req,res)=>
      ({
        message:"New item Was add",
     data: user 
-})
+})*/
     }catch(err)
-    {
+    { console.log(err)
       res.status(500).json({message:"Server Error"})
 
     }

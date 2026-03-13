@@ -1,4 +1,5 @@
 const express = require("express");
+require("dotenv").config();
 const usersRouter = require("./routes/user");
 const itemsRouters = require("./routes/items");
 require("./models/db");
@@ -10,7 +11,7 @@ app.use(express.json());    //تحويل ال obj  الي json
 app.get("/health",(req,res)=>{ 
     res.send("OK");
 })*/
-
+//console.log(process.env.test);
 app.use("/users",usersRouter);
 app.use("/items",itemsRouters);
 
